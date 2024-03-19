@@ -10,9 +10,9 @@ namespace WPFTutorial.Commands
     {
         private readonly NavigationService<TViewModel> _navigationService;
         
-        public NavigateCommand(NavigationService<TViewModel> navigationService)
+        public NavigateCommand(Func<TViewModel> createViewModel)
         {
-            _navigationService = navigationService;
+            _navigationService = new NavigationService<TViewModel>(createViewModel);
         }
         public override void Execute(object parameter)
         {

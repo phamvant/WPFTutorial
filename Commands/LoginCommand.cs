@@ -7,9 +7,9 @@ namespace WPFTutorial.Commands
     public class LoginCommand : CommandBase
     {
         private readonly NavigationService<AccountViewModel> _navigationService;
-        public LoginCommand(NavigationService<AccountViewModel> navigationService) 
+        public LoginCommand()
         {
-            _navigationService = navigationService;
+            _navigationService = new NavigationService<AccountViewModel>(() => new AccountViewModel());
         }
         public override void Execute(object parameter)
         {

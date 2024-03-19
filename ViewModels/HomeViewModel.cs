@@ -11,7 +11,7 @@ namespace WPFTutorial.ViewModels
         public HomeViewModel() 
         {
             NavigateLoginCommand = new NavigateCommand<LoginViewModel>
-                (new Serivces.NavigationService<LoginViewModel>(() => new LoginViewModel()));
+                (() => new LoginViewModel());
         }
     }
 }

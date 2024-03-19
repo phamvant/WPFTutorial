@@ -13,7 +13,7 @@ namespace WPFTutorial.ViewModels
 
         public LoginViewModel()
         {
-            LoginCommand = new LoginCommand(new Serivces.NavigationService<AccountViewModel>(() => new AccountViewModel()));
+            LoginCommand = new LoginCommand();
         }
     }
 }
