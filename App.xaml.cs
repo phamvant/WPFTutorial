@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using WPFTutorial.Models;
 using WPFTutorial.Store;
 using WPFTutorial.ViewModels;
 
@@ -13,7 +14,9 @@ namespace WPFTutorial
         {
             NavigationStore _navigationStore = new NavigationStore();
 
-            _navigationStore.CurrentViewModel = new HomeViewModel(_navigationStore);
+            AccountStore accountStore = new AccountStore();
+
+            _navigationStore.CurrentViewModel = new HomeViewModel(_navigationStore, accountStore);
 
             MainWindow = new MainWindow()
             {

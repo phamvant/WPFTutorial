@@ -20,15 +20,18 @@
             <TextBox
                 x:Name="name"
                 Height="30"
-                Margin="0,0,0,30" />
+                Margin="0,0,0,30" 
+                Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBox
                 x:Name="password"
                 Height="30"
-                Margin="0,0,0,30" />
+                Margin="0,0,0,30" 
+                Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
+                />
             <Button
                 Height="30"
                 Command="{Binding LoginCommand}"
-                Content="Login" />
+                Content="{Binding Username}" />
         </StackPanel>
     </Grid>
 </UserControl>
