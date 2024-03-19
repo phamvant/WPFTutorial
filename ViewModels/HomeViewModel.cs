@@ -8,10 +8,10 @@ namespace WPFTutorial.ViewModels
     {
         public ICommand NavigateLoginCommand { get; }
 
-        public HomeViewModel(NavigationStore navigationStore) 
+        public HomeViewModel() 
         {
             NavigateLoginCommand = new NavigateCommand<LoginViewModel>
-                (new Serivces.NavigationService<LoginViewModel>(navigationStore, () => new LoginViewModel(navigationStore)));
+                (new Serivces.NavigationService<LoginViewModel>(() => new LoginViewModel()));
         }
     }
 }

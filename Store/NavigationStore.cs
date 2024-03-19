@@ -2,12 +2,12 @@
 
 namespace WPFTutorial.Store
 {
-    public class NavigationStore
+    public static class NavigationStore
     {
-        public event Action CurrentViewModelChanged;
+        public static event Action CurrentViewModelChanged;
 
-        private BaseViewModel _currentViewModel;
-        public BaseViewModel CurrentViewModel
+        static private BaseViewModel _currentViewModel;
+        static public BaseViewModel CurrentViewModel
         {
             get { return _currentViewModel; }
             set { _currentViewModel = value;
@@ -15,7 +15,7 @@ namespace WPFTutorial.Store
             }
         }
 
-        private void OnCurrentViewModelChanged()
+        static private void OnCurrentViewModelChanged()
         {
             CurrentViewModelChanged?.Invoke();
         }

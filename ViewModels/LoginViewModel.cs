@@ -11,10 +11,9 @@ namespace WPFTutorial.ViewModels
 
         public ICommand LoginCommand { get; }
 
-        public LoginViewModel(NavigationStore navigationStore)
+        public LoginViewModel()
         {
-            LoginCommand = new LoginCommand(new Serivces.NavigationService<AccountViewModel>
-                (navigationStore, () => new AccountViewModel(navigationStore)));
+            LoginCommand = new LoginCommand(new Serivces.NavigationService<AccountViewModel>(() => new AccountViewModel()));
         }
     }
 }

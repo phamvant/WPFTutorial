@@ -1,7 +1,5 @@
 ﻿
-using System.Windows;
 using WPFTutorial.Serivces;
-using WPFTutorial.Store;
 using WPFTutorial.ViewModels;
 
 namespace WPFTutorial.Commands

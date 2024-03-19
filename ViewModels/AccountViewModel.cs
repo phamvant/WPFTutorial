@@ -9,10 +9,9 @@ namespace WPFTutorial.ViewModels
     {
         public ICommand NavigateHomeCommand { get; }
 
-        public AccountViewModel(NavigationStore navigationStore)
+        public AccountViewModel()
         {
-            NavigateHomeCommand = new NavigateCommand<HomeViewModel>
-                (new NavigationService<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore)));
+            NavigateHomeCommand = new NavigateCommand<HomeViewModel> (new NavigationService<HomeViewModel>(() => new HomeViewModel()));
         }
     }
 }

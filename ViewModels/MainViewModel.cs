@@ -5,13 +5,10 @@ namespace WPFTutorial.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-
-        private readonly NavigationStore _navigationStore;
-        public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
-        public MainViewModel(NavigationStore navigationStore)
+        public BaseViewModel CurrentViewModel => NavigationStore.CurrentViewModel;
+        public MainViewModel()
         {
-            _navigationStore = navigationStore;
-            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChange;
+            NavigationStore.CurrentViewModelChanged += OnCurrentViewModelChange;
         }
 
         private void OnCurrentViewModelChange()

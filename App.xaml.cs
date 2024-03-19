@@ -11,13 +11,11 @@ namespace WPFTutorial
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            NavigationStore _navigationStore = new NavigationStore();
-
-            _navigationStore.CurrentViewModel = new HomeViewModel(_navigationStore);
+            NavigationStore.CurrentViewModel = new HomeViewModel();
 
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel(_navigationStore)
+                DataContext = new MainViewModel()
             };
             
             MainWindow.Show();
