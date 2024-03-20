@@ -8,6 +8,7 @@ namespace WPFTutorial.Serivces
     {
         private readonly NavigationStore _navigationStore;
         private readonly Func<TViewModel> _createTViewModel;
+        private NavigationStore navigateAccountService;
 
         public NavigationService(NavigationStore navigationStore, Func<TViewModel> createTViewModel)
         {

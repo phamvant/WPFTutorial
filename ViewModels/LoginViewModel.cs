@@ -1,13 +1,14 @@
 ﻿using System.Windows.Input;
 using WPFTutorial.Commands;
 using WPFTutorial.Models;
+using WPFTutorial.Serivces;
 using WPFTutorial.Store;
 
 namespace WPFTutorial.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        private string _username;
+        private string _username = "";
 
         public string Username
         {
@@ -19,7 +20,7 @@ namespace WPFTutorial.ViewModels
             }
         }
 
-        private string _email;
+        private string _email = string.Empty;
 
         public string Email
         {
@@ -33,10 +34,9 @@ namespace WPFTutorial.ViewModels
 
         public ICommand LoginCommand { get; }
 
-        public LoginViewModel(NavigationStore navigationStore, AccountStore accountStore)
+        public LoginViewModel(AccountStore accountStore, NavigationService<AccountViewModel> navigateAccountService)
         {
-            LoginCommand = new LoginCommand(accountStore, new Serivces.NavigationService<AccountViewModel>
-                (navigationStore, () => new AccountViewModel(navigationStore, accountStore)), this);
+            LoginCommand = new LoginCommand(accountStore, navigateAccountService, this);
         }
     }
 }

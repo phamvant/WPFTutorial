@@ -4,9 +4,9 @@ namespace WPFTutorial.Store
 {
     public class NavigationStore
     {
-        public event Action CurrentViewModelChanged;
+        public event Action CurrentViewModelChanged = delegate { };
 
-        private BaseViewModel _currentViewModel;
+        private BaseViewModel? _currentViewModel;
         public BaseViewModel CurrentViewModel
         {
             get { return _currentViewModel; }

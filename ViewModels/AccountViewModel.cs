@@ -12,12 +12,14 @@ namespace WPFTutorial.ViewModels
 
         public Account Account { get; set; } = new Account();
 
-        public AccountViewModel(NavigationStore navigationStore, AccountStore accountStore)
+        public NavigationBarViewModel NavigationBarViewModel { get; }
+
+        public AccountViewModel(AccountStore accountStore, NavigationBarViewModel navigationBarViewModel, NavigationService<HomeViewModel> navigateHomeService)
         {
             Account = accountStore.CurrentAccount;
+            NavigationBarViewModel = navigationBarViewModel;
 
-            NavigateHomeCommand = new NavigateCommand<HomeViewModel>
-                (new NavigationService<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore, accountStore)));
+            NavigateHomeCommand = new NavigateCommand<HomeViewModel>(navigateHomeService);
         }
     }
 }

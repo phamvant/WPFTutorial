@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
 using WPFTutorial.Store;
 using WPFTutorial.Commands;
+using WPFTutorial.Serivces;
 
 namespace WPFTutorial.ViewModels
 {
@@ -8,10 +9,13 @@ namespace WPFTutorial.ViewModels
     {
         public ICommand NavigateLoginCommand { get; }
 
-        public HomeViewModel(NavigationStore navigationStore, AccountStore accountStore) 
+        public NavigationBarViewModel NavigationBarViewModel { get; }
+
+        public HomeViewModel(NavigationBarViewModel navigationBarViewModel, NavigationService<LoginViewModel> navigateLoginService) 
         {
-            NavigateLoginCommand = new NavigateCommand<LoginViewModel>
-                (new Serivces.NavigationService<LoginViewModel>(navigationStore, () => new LoginViewModel(navigationStore, accountStore)));
+            NavigateLoginCommand = new NavigateCommand<LoginViewModel>(navigateLoginService);
+
+            NavigationBarViewModel = navigationBarViewModel;
         }
     }
 }
