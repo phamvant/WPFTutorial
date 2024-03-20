@@ -4,7 +4,7 @@ namespace WPFTutorial.Store
 {
     public class AccountStore
     {
-        private Account _currentAccount = new Account();
+        private Account _currentAccount;
 
         public Account CurrentAccount
         {
@@ -14,5 +14,7 @@ namespace WPFTutorial.Store
                 _currentAccount = value;
             }
         }
+
+        public bool IsLoggedIn => CurrentAccount != null;
     }
 }

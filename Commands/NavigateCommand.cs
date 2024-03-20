@@ -1,6 +1,4 @@
-﻿using System.Printing;
-using WPFTutorial.Serivces;
-using WPFTutorial.Store;
+﻿using WPFTutorial.Serivces;
 using WPFTutorial.ViewModels;
 
 namespace WPFTutorial.Commands
@@ -8,9 +6,9 @@ namespace WPFTutorial.Commands
     public class NavigateCommand<TViewModel> : CommandBase
         where TViewModel : BaseViewModel
     {
-        private readonly NavigationService<TViewModel> _navigationService;
+        private readonly INavigationService<TViewModel> _navigationService;
         
-        public NavigateCommand(NavigationService<TViewModel> navigationService)
+        public NavigateCommand(INavigationService<TViewModel> navigationService)
         {
             _navigationService = navigationService;
         }

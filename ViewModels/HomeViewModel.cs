@@ -9,13 +9,9 @@ namespace WPFTutorial.ViewModels
     {
         public ICommand NavigateLoginCommand { get; }
 
-        public NavigationBarViewModel NavigationBarViewModel { get; }
-
-        public HomeViewModel(NavigationBarViewModel navigationBarViewModel, NavigationService<LoginViewModel> navigateLoginService) 
+        public HomeViewModel(INavigationService<LoginViewModel> navigateLoginService) 
         {
             NavigateLoginCommand = new NavigateCommand<LoginViewModel>(navigateLoginService);
-
-            NavigationBarViewModel = navigationBarViewModel;
         }
     }
 }

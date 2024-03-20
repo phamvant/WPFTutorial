@@ -11,11 +11,19 @@ namespace WPFTutorial.ViewModels
         public ICommand NavigateAccountCommand { get; }
         public ICommand NavigateLoginCommand { get; }
 
+        public bool IsLoggedIn => !_accountStore.IsLoggedIn;
+
+        public string Home = "Home";
+
+        private AccountStore _accountStore;
+
         public NavigationBarViewModel (
-            NavigationService<HomeViewModel> homeNavigationService, 
-            NavigationService<AccountViewModel> accountNavigateService, 
-            NavigationService<LoginViewModel> loginNavigateService)
+            AccountStore accountStore,
+            INavigationService<HomeViewModel> homeNavigationService, 
+            INavigationService<AccountViewModel> accountNavigateService, 
+            INavigationService<LoginViewModel> loginNavigateService)
         {
+            _accountStore = accountStore;
             NavigateHomeCommand = new NavigateCommand<HomeViewModel>(homeNavigationService);
             NavigateAccountCommand = new NavigateCommand<AccountViewModel>(accountNavigateService);
             NavigateLoginCommand = new NavigateCommand<LoginViewModel>(loginNavigateService);
